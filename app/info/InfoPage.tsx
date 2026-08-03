@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import PricesTab from "../components/PricesTab";
@@ -17,8 +17,19 @@ type PriceOption = 0 | 1 | 2;
 export default function InfoPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  
 
-  const [activeTab, setActiveTab] = useState<Tab>("prices");
+
+  const tab = searchParams.get("tab");
+  console.log("tab =", tab);
+
+
+  const activeTab: Tab =
+    tab === "metrics"
+      ? "metrics"
+      : tab === "contacts"
+      ? "contacts"
+      : "prices";
 
   const [selectedOptions, setSelectedOptions] = useState<PriceOption[]>([
     0, 0, 0,
@@ -29,23 +40,7 @@ export default function InfoPage() {
     optionIndex: number;
   } | null>(null);
 
-  useEffect(() => {
-    const tab = searchParams.get("tab");
-
-    if (
-      tab === "prices" ||
-      tab === "metrics" ||
-      tab === "contacts"
-    ) {
-      setActiveTab(tab);
-    } else {
-      setActiveTab("prices");
-    }
-  }, [searchParams]);
-
   const changeTab = (tab: Tab) => {
-    setActiveTab(tab);
-
     router.replace(`/info?tab=${tab}`, {
       scroll: false,
     });
