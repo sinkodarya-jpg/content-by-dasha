@@ -64,7 +64,7 @@ console.log("url:", window.location.href);
       <div className="py-4 md:py-6">
         <button
           onClick={() => router.push("/")}
-          className="group flex w-fit items-center gap-2 text-xs lowercase text-neutral-500 transition-colors duration-300 hover:text-black"
+          className="group flex w-fit items-center gap-2 text-xs lowercase text-neutral-500 transition-colors duration-300 hover:text-[#2F2F2F]"
         >
           <span className="transition-transform duration-300 group-hover:-translate-x-1">
             ←

@@ -12,7 +12,7 @@ export default function Intro() {
   return (
 <div className="w-full py-8 md:w-[45%] md:py-24">      
   <p
-        className={`${inter.className} text-[14px] leading-5 font-normal text-black md:text-[15px]`}
+        className={`${inter.className} text-[14px] leading-5 font-normal text-[#2F2F2F] md:text-[15px]`}
       >
         i'm dasha — a content creator from denmark.
         <br />

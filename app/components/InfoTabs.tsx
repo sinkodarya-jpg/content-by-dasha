@@ -19,7 +19,7 @@ export default function InfoTabs({
         className={`py-1 text-[10px] transition-colors duration-300 md:py-1.5 md:text-sm ${
           activeTab === "prices"
             ? "bg-black text-white"
-            : "bg-white text-black hover:bg-neutral-100"
+            : "bg-white text-[#2F2F2F] hover:bg-neutral-100"
         }`}
       >
         prices
@@ -30,7 +30,7 @@ export default function InfoTabs({
         className={`border-l border-black py-1 text-[10px] transition-colors duration-300 md:py-1.5 md:text-sm ${
           activeTab === "metrics"
             ? "bg-black text-white"
-            : "bg-white text-black hover:bg-neutral-100"
+            : "bg-white text-[#2F2F2F] hover:bg-neutral-100"
         }`}
       >
         metrics
@@ -41,7 +41,7 @@ export default function InfoTabs({
         className={`border-l border-black py-1 text-[10px] transition-colors duration-300 md:py-1.5 md:text-sm ${
           activeTab === "contacts"
             ? "bg-black text-white"
-            : "bg-white text-black hover:bg-neutral-100"
+            : "bg-white text-[#2F2F2F] hover:bg-neutral-100"
         }`}
       >
         contacts
