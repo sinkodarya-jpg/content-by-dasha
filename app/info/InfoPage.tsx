@@ -21,7 +21,9 @@ export default function InfoPage() {
 
 
   const tab = searchParams.get("tab");
-  console.log("tab =", tab);
+
+console.log("tab:", tab);
+console.log("url:", window.location.href);
 
 
   const activeTab: Tab =
