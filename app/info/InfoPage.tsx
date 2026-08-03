@@ -17,13 +17,8 @@ type PriceOption = 0 | 1 | 2;
 export default function InfoPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
-
-
   const tab = searchParams.get("tab");
 
-console.log("tab:", tab);
-console.log("url:", window.location.href);
 
 
   const activeTab: Tab =

@@ -143,8 +143,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={closeMenu}
-                  className="py-3 text-[28px] lowercase leading-none tracking-tight"
-                >
+className="py-3 text-[22px] lowercase leading-none tracking-tight text-[#2F2F2F] transition-opacity duration-300 hover:opacity-60"                >
                   {item.label}
                 </Link>
               ))}
@@ -154,8 +153,7 @@ export default function Header() {
               <a
                 href="mailto:tookbydasha@gmail.com"
                 onClick={closeMenu}
-                className="py-3 text-[28px] font-semibold leading-none tracking-tight"
-              >
+className="py-3 text-[22px] font-medium leading-none tracking-tight text-[#2F2F2F] transition-opacity duration-300 hover:opacity-60"              >
                 tookbydasha@gmail.com
               </a>
 
@@ -184,8 +182,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={closeMenu}
-              className="text-sm lowercase tracking-wide transition-opacity duration-300 hover:opacity-60"
-            >
+className="text-sm lowercase tracking-wide text-[#2F2F2F] transition-opacity duration-300 hover:opacity-60"            >
               {item.label}
             </Link>
           ))}
@@ -196,8 +193,7 @@ export default function Header() {
 
         <a
           href="mailto:tookbydasha@gmail.com"
-          className="text-base font-semibold tracking-tight transition-opacity duration-300 hover:opacity-60"
-        >
+className="text-base font-medium tracking-tight text-[#2F2F2F] transition-opacity duration-300 hover:opacity-60"        >
           tookbydasha@gmail.com
         </a>
 
