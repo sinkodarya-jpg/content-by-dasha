@@ -60,8 +60,7 @@ export default function Home() {
   return (
     <main className="py-8">
       <Intro/>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-16 items-start">
-        {items.map((item) => (
+<div className="grid grid-cols-1 border-t border-black/10 pt-8 md:grid-cols-3 gap-x-16 gap-y-16 items-start">    {items.map((item) => (
           <div key={item.id}>
             {item.type === 'photo' ? (
               <PhotoCard
