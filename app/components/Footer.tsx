@@ -44,10 +44,7 @@ export default function Footer() {
 
           <p className="mt-5 text-sm leading-relaxed text-neutral-500">
             based in denmark
-            <br />
-            currently accepting
-            <br />
-            new collaborations ✿
+            
           </p>
 
           <div className="mt-8 text-xs leading-relaxed text-neutral-400">
