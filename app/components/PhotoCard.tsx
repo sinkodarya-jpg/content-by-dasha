@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import styles from './PhotoCard.module.scss'
 
 type PhotoCardProps = {
   id: string
@@ -19,10 +20,10 @@ export default function PhotoCard({
   instagramUrl,
 }: PhotoCardProps) {
   return (
-    <article className="flex flex-col">
-      <div className="flex justify-end h-6 mb-4">
+    <article className={styles.card}>
+      <div className={styles.cardMeta}>
         {instagramUrl && (
-          <a href={instagramUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:opacity-60 transition">
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className={styles.instagramLink}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -31,14 +32,14 @@ export default function PhotoCard({
           </a>
         )}
       </div>
-      <Link href={`/projects/${id}`} className="block">
-        <div className="relative w-full aspect-square  overflow-hidden">
-          <Image src={collageSrc} alt={title} fill sizes="33vw" className="object-cover" />
-          <div className="absolute left-0 top-0 w-[55%] h-full flex items-center z-10">
-            <Image src={productImageSrc} alt={title} width={0} height={0} sizes="25vw" className="w-full h-auto" />
+      <Link href={`/projects/${id}`} className={styles.cardLink}>
+        <div className={styles.photoVisual}>
+          <Image src={collageSrc} alt={title} fill sizes="33vw" className={styles.coverImage} />
+          <div className={styles.photoProduct}>
+            <Image src={productImageSrc} alt={title} width={0} height={0} sizes="25vw" className={styles.productImage} />
           </div>
         </div>
-        <p className="mt-3 text-sm lowercase tracking-wide">{title}</p>
+        <p className={styles.cardTitle}>{title}</p>
       </Link>
     </article>
   )

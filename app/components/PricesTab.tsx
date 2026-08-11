@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import styles from './PricesTab.module.scss';
 
 type PriceOption = 0 | 1 | 2;
 
@@ -41,7 +43,7 @@ export default function PricesTab({
   selectOption,
 }: Props) {
   return (
-    <section className="grid grid-cols-1 items-start gap-12 md:grid-cols-3 md:gap-4">
+    <section className={styles.prices}>
       {pricingCards.map((card, cardIndex) => {
         const selectedOption = selectedOptions[cardIndex];
         const currentOption = card.options[selectedOption];
@@ -49,32 +51,35 @@ export default function PricesTab({
         return (
           <article
             key={card.title}
-            className="w-full overflow-hidden border"
+            className={styles.priceCard}
             style={{ borderColor: card.accent }}
           >
             {/* Image */}
-            <div className="h-[90px] w-full overflow-hidden">
-              <img
+            <div className={styles.priceImage}>
+              <Image
                 src={card.image}
                 alt=""
-                className="h-full w-full object-cover"
+                width={800}
+                height={180}
+                className={styles.coverImage}
               />
             </div>
 
             {/* Content */}
-            <div className="px-4 pb-6">
+            <div className={styles.priceContent}>
 
               {/* Title */}
-              <div className="flex h-[70px] items-center justify-center">
-                <img
+              <div className={styles.priceTitle}>
+                <Image
                   src={card.titleImage}
                   alt={card.title}
-                  className="max-h-[55px] max-w-[75%] object-contain"
+                  width={400}
+                  height={110}
                 />
               </div>
 
               {/* Switcher */}
-              <div className="grid grid-cols-3 items-center">
+              <div className={styles.priceOptions}>
                 {card.options.map((option, optionIndex) => {
                   const isSelected =
                     selectedOption === optionIndex;
@@ -110,54 +115,35 @@ export default function PricesTab({
                       onMouseLeave={() =>
                         setHoveredOption(null)
                       }
-                      className="relative flex justify-center py-1"
+                      className={styles.priceOption}
                     >
-                      <span className="relative inline-block px-2 py-0.5">
+                      <span className={styles.priceOptionInner}>
 
                         <span
-                          className={`absolute left-0 top-0 h-full overflow-visible transition-[width] duration-500 ease-out ${
+                          className={`${styles.optionHighlight} ${
                             isHighlighted
-                              ? "w-full"
-                              : "w-0"
+                              ? styles.optionHighlighted : ""
                           }`}
                           style={{
                             backgroundColor: highlightColor,
                           }}
                         >
                           <span
-                            className={`absolute right-0 top-0 h-full w-px bg-black transition-opacity duration-100 ${
+                            className={`${styles.optionRight} ${
                               isHighlighted
-                                ? "opacity-100"
-                                : "opacity-0"
-                            }`}
-                          />
-
-                          <span
-                            className={`absolute -right-[3px] -top-[3px] h-[6px] w-[6px] rounded-full bg-black transition-opacity duration-100 ${
-                              isHighlighted
-                                ? "opacity-100"
-                                : "opacity-0"
+                                ? styles.optionMarkerVisible : ""
                             }`}
                           />
                         </span>
 
                         <span
-                          className={`absolute left-0 top-0 h-full w-px bg-black transition-opacity duration-100 ${
+                          className={`${styles.optionLeft} ${
                             isHighlighted
-                              ? "opacity-100"
-                              : "opacity-0"
+                              ? styles.optionMarkerVisible : ""
                           }`}
                         />
 
-                        <span
-                          className={`absolute -bottom-[3px] -left-[3px] h-[6px] w-[6px] rounded-full bg-black transition-opacity duration-100 ${
-                            isHighlighted
-                              ? "opacity-100"
-                              : "opacity-0"
-                          }`}
-                        />
-
-                        <span className="relative z-10 whitespace-nowrap text-sm lowercase">
+                        <span className={styles.optionLabel}>
                           {option.label}
                         </span>
 
@@ -168,24 +154,23 @@ export default function PricesTab({
               </div>
 
               {/* Price */}
-              <p className="mt-7 font-bold">
+              <p className={styles.priceValue}>
                 Price: {currentOption.price}
               </p>
 
               {/* Tagline */}
-              <p className="mt-6 text-base leading-snug">
+              <p className={styles.tagline}>
                 <span
-                  className="box-decoration-clone px-0.5"
                   style={{
                     backgroundColor: card.accent,
                   }}
                 >
-                  Tagline: {currentOption.tagline}
+                 {currentOption.tagline}
                 </span>
               </p>
 
               {/* Features */}
-              <ul className="mt-6 list-disc space-y-0.5 pl-5 text-sm leading-snug">
+              <ul className={styles.features}>
                 {currentOption.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}

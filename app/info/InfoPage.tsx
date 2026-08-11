@@ -10,6 +10,7 @@ import InfoTabs from "../components/InfoTabs";
 
 import { pricingCards } from "../data/pricingCards";
 import { metrics } from "../data/metricsData";
+import styles from './InfoPage.module.scss';
 
 type Tab = "prices" | "metrics" | "contacts";
 type PriceOption = 0 | 1 | 2;
@@ -17,6 +18,8 @@ type PriceOption = 0 | 1 | 2;
 export default function InfoPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+
   const tab = searchParams.get("tab");
 
 
@@ -55,13 +58,13 @@ export default function InfoPage() {
   };
 
   return (
-    <main className="py-4 md:py-8">
-      <div className="py-4 md:py-6">
+    <main className={styles.infoMain}>
+      <div className={styles.infoBack}>
         <button
           onClick={() => router.push("/")}
-          className="group flex w-fit items-center gap-2 text-xs lowercase text-neutral-500 transition-colors duration-300 hover:text-[#2F2F2F]"
+          className={styles.backLink}
         >
-          <span className="transition-transform duration-300 group-hover:-translate-x-1">
+          <span className={styles.backArrow}>
             ←
           </span>
 
@@ -69,7 +72,7 @@ export default function InfoPage() {
         </button>
       </div>
 
-      <section className="flex flex-col gap-10 md:gap-16">
+      <section className={styles.infoContent}>
         <InfoTabs
           activeTab={activeTab}
           changeTab={changeTab}
@@ -91,7 +94,6 @@ export default function InfoPage() {
             engagementRate={metrics.engagementRate}
             audience={metrics.audience}
             postReach={metrics.postReach}
-            bestPosts={metrics.bestPosts}
           />
         )}
 

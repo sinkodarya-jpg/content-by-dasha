@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import styles from './ShowcaseCard.module.scss'
 
 type ShowcaseCardProps = {
   id: string
@@ -21,15 +22,15 @@ export default function ShowcaseCard({
   instagramUrl,
 }: ShowcaseCardProps) {
   return (
-    <article className="flex flex-col">
-      <div className="flex justify-end h-6 mb-4">
+    <article className={styles.card}>
+      <div className={styles.cardMeta}>
         {instagramUrl && (
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="hover:opacity-60 transition"
+            className={styles.instagramLink}
           >
             <svg
               width="20"
@@ -47,17 +48,17 @@ export default function ShowcaseCard({
         )}
       </div>
 
-      <Link href={`/projects/${id}`} className="block">
-        <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+      <Link href={`/projects/${id}`} className={styles.cardLink}>
+        <div className={styles.showcaseVisual}>
           {/* Видео */}
-          <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[32%] aspect-[9/16] rounded-xl overflow-hidden z-10">
+          <div className={styles.showcaseVideo}>
             <video
               src={videoSrc}
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-full object-cover"
+              className={styles.coverImage}
             />
           </div>
 
@@ -67,21 +68,21 @@ export default function ShowcaseCard({
             alt=""
             fill
             sizes="33vw"
-            className="object-contain pointer-events-none z-20"
+            className={styles.showcaseOverlay}
           />
 
           {/* Сумка + подпись */}
-          <div className="absolute left-0 top-0 w-[55%] z-30 flex flex-col">
+          <div className={styles.showcaseProduct}>
             <Image
               src={productImageSrc}
               alt={title}
               width={0}
               height={0}
               sizes="25vw"
-              className="w-full h-auto"
+              className={styles.productImage}
             />
 
-            <p className="mt-3 text-sm lowercase tracking-wide">
+            <p className={styles.cardTitle}>
               {title}
             </p>
           </div>

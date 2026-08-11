@@ -1,85 +1,30 @@
 'use client'
 
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: '400',
-})
+import styles from './Intro.module.scss'
+import { infoLinks, site } from '../data/site'
 
 export default function Intro() {
   return (
-<div className="w-full py-8 md:w-[45%] md:py-24">      
+<div className={styles.intro}>
   <p
-        className={`${inter.className} text-[14px] leading-5 font-normal text-[#2F2F2F] md:text-[15px]`}
+        className={styles.introText}
       >
-        i'm dasha — a content creator from denmark.
-        <br />
-        <br />
-        creating cozy lifestyle content inspired by home, coffee,
-        copenhagen's streets and everyday moments
-        <br />
-        <br />
-        explore my latest collaborations below, and let's work together!
+        {site.intro.map((paragraph, index) => (
+          <span key={paragraph}>
+            {paragraph}
+            {index < site.intro.length - 1 && <><br /><br /></>}
+          </span>
+        ))}
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
+      <div className={styles.pillGroup}>
 
-        <Link
-          href="/info?tab=prices"
-          className="
-            rounded-full
-            border
-            border-black
-            px-5
-            py-2
-            text-sm
-            lowercase
-            transition-colors
-            duration-300
-            hover:bg-neutral-100
-          "
-        >
-          prices
-        </Link>
-
-        <Link
-          href="/info?tab=metrics"
-          className="
-            rounded-full
-            border
-            border-black
-            px-5
-            py-2
-            text-sm
-            lowercase
-            transition-colors
-            duration-300
-            hover:bg-neutral-100
-          "
-        >
-          metrics
-        </Link>
-
-        <Link
-          href="/info?tab=contacts"
-          className="
-            rounded-full
-            border
-            border-black
-            bg-[#f7dfe5]
-            px-5
-            py-2
-            text-sm
-            lowercase
-            transition-colors
-            duration-300
-            hover:bg-[#f2cfd8]
-          "
-        >
-          contact me
-        </Link>
+        {infoLinks.map((link) => (
+          <Link key={link.href} href={link.href} className={`${styles.pill} ${link.accent ? styles.pinkPill : ''}`}>
+            {link.label}
+          </Link>
+        ))}
 
       </div>
     </div>

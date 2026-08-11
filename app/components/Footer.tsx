@@ -1,55 +1,42 @@
 'use client'
 
 import Link from 'next/link'
+import styles from './Footer.module.scss'
+import { infoLinks, site } from '../data/site'
 
 export default function Footer() {
   return (
-    <footer className="mt-28">
+    <footer className={styles.footer}>
       {/* Full width divider */}
-      <div className="relative left-1/2 mb-12 w-screen -translate-x-1/2 border-t border-black" />
+      <div className={styles.footerDivider} />
 
-      <div className="mx-auto flex w-full max-w-[1600px] flex-col justify-between gap-14 px-4 pb-14 md:flex-row md:items-end md:px-8">
+      <div className={styles.footerContent}>
         {/* Navigation */}
-        <nav className="flex flex-col items-start gap-3">
-          <Link
-            href="/info?tab=prices"
-            className="rounded-full border border-black px-5 py-2 text-sm lowercase transition-colors duration-300 hover:bg-neutral-100"
-          >
-            prices
-          </Link>
-
-          <Link
-            href="/info?tab=metrics"
-            className="rounded-full border border-black px-5 py-2 text-sm lowercase transition-colors duration-300 hover:bg-neutral-100"
-          >
-            metrics
-          </Link>
-
-          <Link
-            href="/info?tab=contacts"
-            className="rounded-full border border-black bg-[#f7dfe5] px-5 py-2 text-sm lowercase transition-colors duration-300 hover:bg-[#f2cfd8]"
-          >
-            contact me
-          </Link>
+        <nav className={styles.footerNav}>
+          {infoLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={`${styles.pill} ${link.accent ? styles.pinkPill : ''}`}>
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         {/* Contact */}
-        <div className="text-left md:text-right">
+        <div className={styles.footerContact}>
           <a
-            href="mailto:tookbydasha@gmail.com"
-            className="text-2xl font-bold transition-opacity duration-300 hover:opacity-70"
+            href={`mailto:${site.email}`}
+            className={styles.footerEmail}
           >
-            tookbydasha@gmail.com
+            {site.email}
           </a>
 
-          <p className="mt-5 text-sm leading-relaxed text-neutral-500">
-            based in denmark
+          <p className={styles.footerLocation}>
+            {site.location}
             
           </p>
 
-          <div className="mt-8 text-xs leading-relaxed text-neutral-400">
-            <p>CVR: 12345678</p>
-            <p>© {new Date().getFullYear()} Dasha Sinko</p>
+          <div className={styles.footerLegal}>
+            <p>CVR: {site.cvr}</p>
+            <p>© {new Date().getFullYear()} {site.copyrightName}</p>
           </div>
         </div>
       </div>
