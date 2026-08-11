@@ -1,30 +1,30 @@
 export type HomeProject =
   | {
-      type: "video";
-      id: string;
-      title: string;
-      videoSrc: string;
-      videoOrientation: "vertical" | "horizontal";
-      productImageSrc: string;
-      instagramUrl?: string;
-    }
+    type: "video";
+    id: string;
+    title: string;
+    videoSrc: string;
+    videoOrientation: "vertical" | "horizontal";
+    productImageSrc: string;
+    instagramUrl?: string;
+  }
   | {
-      type: "photo";
-      id: string;
-      title: string;
-      collageSrc: string;
-      productImageSrc: string;
-      instagramUrl?: string;
-    }
+    type: "photo";
+    id: string;
+    title: string;
+    collageSrc: string;
+    productImageSrc: string;
+    instagramUrl?: string;
+  }
   | {
-      type: "showcase";
-      id: string;
-      title: string;
-      videoSrc: string;
-      productImageSrc: string;
-      overlaySrc: string;
-      instagramUrl?: string;
-    };
+    type: "showcase";
+    id: string;
+    title: string;
+    videoSrc: string;
+    productImageSrc: string;
+    overlaySrc: string;
+    instagramUrl?: string;
+  };
 
 export const homeProjects: HomeProject[] = [
   {
@@ -53,6 +53,7 @@ export const homeProjects: HomeProject[] = [
     overlaySrc: "/home-projects/furla-bag/overlay.png",
     instagramUrl: "https://www.instagram.com/p/DWmQZOnDkKe",
   },
+
   {
     type: "video",
     id: "moody-mumu-socks",
@@ -63,21 +64,39 @@ export const homeProjects: HomeProject[] = [
     instagramUrl: "https://www.instagram.com/p/DYKYx3kqHzv",
   },
   {
+    type: "photo",
+    id: "gina-tricot",
+    title: "(5) Gina Tricot",
+    collageSrc: "/home-projects/gina-tricot/collage.png",
+    productImageSrc: "/home-projects/gina-tricot/product.png",
+    instagramUrl: "https://www.instagram.com/p/Daf_RhwDmNN/?hl=en&img_index=1",
+  },
+  {
     type: "video",
     id: "jw-pei",
-    title: "(5) JW Pei",
+    title: "(6) JW Pei",
     videoSrc: "/home-projects/jw-pei/video.mp4",
     videoOrientation: "vertical",
     productImageSrc: "/home-projects/jw-pei/product.png",
     instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
   },
   {
-    type: "photo",
-    id: "gina-tricot",
-    title: "(6) Gina Tricot",
-    collageSrc: "/home-projects/gina-tricot/collage.png",
-    productImageSrc: "/home-projects/gina-tricot/product.png",
-    instagramUrl: "https://www.instagram.com/p/DXKLnJKDGZX/?hl=en&img_index=1",
+    type: "video",
+    id: "joocyee",
+    title: "(7) JOOCYEE",
+    videoSrc: "/home-projects/joocyee/video.mp4",
+    videoOrientation: "vertical",
+    productImageSrc: "/home-projects/joocyee/product.png",
+    instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
   },
-  
+
+  {
+    type: "showcase",
+    id: "everyday-bars",
+    title: "(8) Everyday Bars",
+    videoSrc: "/home-projects/everyday-bars/video.mp4",
+    productImageSrc: "/home-projects/everyday-bars/product.png",
+    overlaySrc: "/home-projects/everyday-bars/overlay.png",
+  },
+
 ];
