@@ -654,23 +654,25 @@ export default function FinderWindow() {
 
         <p className={styles.introText}>
 
-          {site.intro.map((paragraph, index) => (
-            <span key={paragraph}>
+  i'm dasha — <span className={styles.highlight}>
+    a content creator from denmark.
+  </span>
 
-              {paragraph}
+  <br />
+  <br />
 
-              {index < site.intro.length - 1 && (
-                <>
-                  <br />
-                  <br />
-                </>
-              )}
+  i'm creating cozy lifestyle content inspired by home, coffee,
+  copenhagen's streets and everyday moments
 
-            </span>
-          ))}
+  <br />
+  <br />
 
-        </p>
+  explore my latest collaborations below, and{' '}
+  <span className={styles.highlight}>
+    let's work together!
+  </span>
 
+</p>
 
         {/* ===============================================
             ARROW
