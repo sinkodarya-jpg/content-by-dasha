@@ -105,14 +105,31 @@ export const homeProjects: HomeProject[] = [
     videoOrientation: "horizontal",
     productImageSrc: "/home-projects/gina-tricot-2/product.png",
   },
+    {
+    type: "video",
+    id: "en route",
+    title: "(10) En Route",
+    videoSrc: "/home-projects/en-route/video.mp4",
+    videoOrientation: "vertical",
+    productImageSrc: "/home-projects/en-route/product.png",
+    instagramUrl: "https://www.instagram.com/reel/DZcs8ArK5aR/?hl=en",
+  },
   {
     type: "showcase",
     id: "sudoku",
-    title: "(10) Get My Sudoku",
+    title: "(11) Get My Sudoku",
     videoSrc: "/home-projects/sudoku/video.mp4",
     productImageSrc: "/home-projects/sudoku/product.png",
     overlaySrc: "/home-projects/sudoku/overlay.png",
     instagramUrl: "https://www.instagram.com/p/DbME9sXOTl0/?hl=en",
-
+  },
+  {
+    type: "video",
+    id: "anua",
+    title: "(12) Anua",
+    videoSrc: "/home-projects/anua/video.mp4",
+    videoOrientation: "vertical",
+    productImageSrc: "/home-projects/anua/product.png",
+    instagramUrl: "https://www.instagram.com/reel/DbTTo7RKM9V/?hl=en",
   },
 ];
