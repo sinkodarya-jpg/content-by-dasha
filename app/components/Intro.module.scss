@@ -1220,11 +1220,11 @@
     }
 
     .folder1 {
-        left: -50px;
+        left: -45px;
     }
 
     .folder2 {
-        right: -50px;
+        right: -40px;
     }
 
 
@@ -1235,6 +1235,7 @@
     ----------------------------------------------- */
 
     .introBottom {
+        overflow: visible;
         width: 90vw;
 
         margin-top: 1.5rem;
