@@ -53,7 +53,7 @@ export const homeProjects: HomeProject[] = [
     productImageSrc: "/home-projects/gamin-shoes/product.png",
     instagramUrl: "https://www.instagram.com/p/DXKLnJKDGZX/?hl=en&img_index=1",
   },
-{
+  {
     type: "video",
     id: "not-just-pajama",
     title: "Not Just Pajama",
@@ -89,7 +89,7 @@ export const homeProjects: HomeProject[] = [
     instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
   },
 
-    {
+  {
     type: "video",
     id: "gina-tricot-2",
     title: "Gina Tricot",
@@ -97,7 +97,7 @@ export const homeProjects: HomeProject[] = [
     videoOrientation: "horizontal",
     productImageSrc: "/home-projects/gina-tricot-2/product.png",
   },
-   {
+  {
     type: "video",
     id: "anua",
     title: "Anua",
@@ -107,11 +107,11 @@ export const homeProjects: HomeProject[] = [
     instagramUrl: "https://www.instagram.com/reel/DbTTo7RKM9V/?hl=en",
   },
   {
-type: "video",
+    type: "video",
     id: "sudoku",
     title: "Get My Sudoku",
     videoSrc: "/home-projects/sudoku/video.mp4",
-        videoOrientation: "vertical",
+    videoOrientation: "vertical",
     productImageSrc: "/home-projects/sudoku/product.png",
     instagramUrl: "https://www.instagram.com/p/DbME9sXOTl0/?hl=en",
   },
@@ -123,7 +123,7 @@ type: "video",
     productImageSrc: "/home-projects/everyday-bars/product.png",
     overlaySrc: "/home-projects/everyday-bars/overlay.png",
   },
-    {
+  {
     type: "video",
     id: "en route",
     title: "En Route",
@@ -141,5 +141,23 @@ type: "video",
     videoOrientation: "vertical",
     productImageSrc: "/home-projects/joocyee/product.png",
     instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
+  },
+  {
+    type: "video",
+    id: "fit-flop",
+    title: "FIT FLOP",
+    videoSrc: "/home-projects/fit-flop/video.mp4",
+    videoOrientation: "vertical",
+    productImageSrc: "/home-projects/fit-flop/product.png",
+    instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
+  },
+  {
+    type: "video",
+    id: "instories",
+    title: "INSTORIES",
+    videoSrc: "/home-projects/instories/video.mp4",
+    videoOrientation: "vertical",
+    productImageSrc: "/home-projects/instories/product.png",
+    instagramUrl: "//www.instagram.com/p/DXhGzthDL7g/?hl=en",
   },
 ];
