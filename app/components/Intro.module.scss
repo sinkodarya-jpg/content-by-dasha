@@ -999,10 +999,12 @@
     /* -----------------------------------------------
        WINDOW
     ----------------------------------------------- */
-
+.intro {
+    overflow: visible;
+}
     .windowWrapper {
-        width: 64vw;
-
+        width: 80vw;
+overflow: visible;
         margin-top: 1.5rem;
     }
 
@@ -1220,11 +1222,11 @@
     }
 
     .folder1 {
-        left: -45px;
+        left: -15px;
     }
 
     .folder2 {
-        right: -40px;
+        right: -15px;
     }
 
 
