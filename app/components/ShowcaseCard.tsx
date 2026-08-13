@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from './ShowcaseCard.module.scss'
 
 type ShowcaseCardProps = {
+  id: string
   title: string
   videoSrc: string
   productImageSrc: string
@@ -12,6 +13,7 @@ type ShowcaseCardProps = {
 }
 
 export default function ShowcaseCard({
+  id,
   title,
   videoSrc,
   productImageSrc,
@@ -39,16 +41,19 @@ export default function ShowcaseCard({
             >
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="0.5"
+                fill="currentColor"
+              />
             </svg>
           </a>
         )}
       </div>
 
-      {/* Restore the project link when the detail pages are ready. */}
       <div className={styles.cardLink}>
         <div className={styles.showcaseVisual}>
-          {/* Видео */}
           <div className={styles.showcaseVideo}>
             <video
               src={videoSrc}
@@ -60,7 +65,6 @@ export default function ShowcaseCard({
             />
           </div>
 
-          {/* Декоративный PNG */}
           <Image
             src={overlaySrc}
             alt=""
@@ -69,7 +73,6 @@ export default function ShowcaseCard({
             className={styles.showcaseOverlay}
           />
 
-          {/* Сумка + подпись */}
           <div className={styles.showcaseProduct}>
             <Image
               src={productImageSrc}

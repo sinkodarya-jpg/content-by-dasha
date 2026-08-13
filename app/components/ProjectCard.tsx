@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from './ProjectCard.module.scss'
 
 type ProjectCardProps = {
+    id: string
   title: string
   videoSrc: string
   videoOrientation: 'vertical' | 'horizontal'
@@ -12,6 +13,7 @@ type ProjectCardProps = {
 }
 
 export default function ProjectCard({
+  id,
   title,
   videoSrc,
   videoOrientation,

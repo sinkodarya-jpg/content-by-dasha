@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from './PhotoCard.module.scss'
 
 type PhotoCardProps = {
+    id: string
   title: string
   collageSrc: string
   productImageSrc: string

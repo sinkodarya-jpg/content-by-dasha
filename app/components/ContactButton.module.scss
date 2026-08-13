@@ -1,0 +1,151 @@
+.contactButton {
+  position: fixed;
+
+  left: 24px;
+  bottom: 24px;
+
+  z-index: 1000;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  border: 0;
+  border-radius: 22px;
+
+  background: #ffffff;
+  color: #222;
+
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.1),
+    0 1px 4px rgba(0, 0, 0, 0.06);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  font-family: inherit;
+
+  transition:
+    width 0.4s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.icon {
+  flex: 0 0 44px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 19px;
+  height: 19px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* ========================================
+   EMAIL
+======================================== */
+
+.email {
+  padding-right: 17px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s ease;
+}
+
+
+/* ========================================
+   DESKTOP HOVER
+======================================== */
+
+@media (min-width: 769px) {
+
+  .contactButton:hover,
+  .contactButton:focus-visible {
+    width: 190px;
+
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.13),
+      0 1px 5px rgba(0, 0, 0, 0.06);
+  }
+
+  .contactButton:hover .email,
+  .contactButton:focus-visible .email {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+
+  .contactButton:hover .icon svg {
+    transform: scale(1.05);
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .contactButton {
+    left: 16px;
+    bottom: 16px;
+
+    width: 44px;
+    height: 44px;
+  }
+
+  .contactButton.open {
+    width: 190px;
+  }
+
+  .contactButton.open .email {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+
+  .contactButton.open .icon svg {
+    transform: scale(1.05);
+  }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+.contactButton:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

@@ -5,7 +5,7 @@ export const site = {
   copyrightName: "Dasha Sinko",
   intro: [
     "i'm dasha — a content creator from denmark.",
-    "creating cozy lifestyle content inspired by home, coffee, copenhagen's streets and everyday moments",
+    "i'm creating cozy lifestyle content inspired by home, coffee, copenhagen's streets and everyday moments",
     "explore my latest collaborations below, and let's work together!",
   ],
   contact: {
