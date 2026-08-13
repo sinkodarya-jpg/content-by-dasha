@@ -1,11 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './PhotoCard.module.scss'
 
 type PhotoCardProps = {
-  id: string
   title: string
   collageSrc: string
   productImageSrc: string
@@ -13,7 +11,6 @@ type PhotoCardProps = {
 }
 
 export default function PhotoCard({
-  id,
   title,
   collageSrc,
   productImageSrc,
@@ -32,7 +29,8 @@ export default function PhotoCard({
           </a>
         )}
       </div>
-      <Link href={`/projects/${id}`} className={styles.cardLink}>
+      {/* Restore the project link when the detail pages are ready. */}
+      <div className={styles.cardLink}>
         <div className={styles.photoVisual}>
           <Image src={collageSrc} alt={title} fill sizes="33vw" className={styles.coverImage} />
           <div className={styles.photoProduct}>
@@ -40,7 +38,7 @@ export default function PhotoCard({
           </div>
         </div>
         <p className={styles.cardTitle}>{title}</p>
-      </Link>
+      </div>
     </article>
   )
 }

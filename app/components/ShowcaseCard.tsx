@@ -1,11 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './ShowcaseCard.module.scss'
 
 type ShowcaseCardProps = {
-  id: string
   title: string
   videoSrc: string
   productImageSrc: string
@@ -14,7 +12,6 @@ type ShowcaseCardProps = {
 }
 
 export default function ShowcaseCard({
-  id,
   title,
   videoSrc,
   productImageSrc,
@@ -48,7 +45,8 @@ export default function ShowcaseCard({
         )}
       </div>
 
-      <Link href={`/projects/${id}`} className={styles.cardLink}>
+      {/* Restore the project link when the detail pages are ready. */}
+      <div className={styles.cardLink}>
         <div className={styles.showcaseVisual}>
           {/* Видео */}
           <div className={styles.showcaseVideo}>
@@ -87,7 +85,7 @@ export default function ShowcaseCard({
             </p>
           </div>
         </div>
-      </Link>
+      </div>
     </article>
   )
 }

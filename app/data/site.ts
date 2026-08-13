@@ -25,6 +25,11 @@ export const infoLinks = [
   { label: "contact me", href: "/info?tab=contacts", accent: true },
 ] as const;
 
+export const introFolders = [
+  { label: "media kit", href: "/info?tab=prices" },
+  { label: "inst metrics", href: "/info?tab=metrics" },
+] as const;
+
 export const navigationItems = [
   { label: "Projects", href: "/" },
   { label: "Prices", href: "/info?tab=prices" },

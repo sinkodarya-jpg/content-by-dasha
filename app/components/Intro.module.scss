@@ -1,6 +1,1037 @@
-.intro { width: 100%; padding: 2rem 0; }
-.introText { color: #2f2f2f; font-size: 14px; font-weight: 400; line-height: 1.25rem; }
-.pillGroup { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
-.pill { border: 1px solid #000; border-radius: 9999px; padding: .5rem 1.25rem; font-size: .875rem; text-transform: lowercase; transition: background-color .3s; &:hover { background: #f5f5f5; } }
-.pinkPill { background: #f7dfe5; &:hover { background: #f2cfd8; } }
-@media (min-width: 768px) { .intro { width: 45%; padding: 6rem 0; }.introText { font-size: 15px; }.pillGroup { margin-top: 2rem; } }
+.intro {
+    position: relative;
+
+    width: 100%;
+    min-height: 80vh;
+
+    padding: 0rem 3rem 5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    position: absolute;
+
+    top: 1.5rem;
+    left: 50%;
+
+    z-index: 50;
+
+    transform: translateX(-50%);
+
+    color: #292929;
+    text-decoration: none;
+
+    font-family: var(--font-handwriting);
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 1;
+
+    white-space: nowrap;
+
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.55;
+    }
+}
+
+
+/* ========================================
+   WINDOW WRAPPER
+
+   IMPORTANT:
+   overflow: visible
+   because folders are outside window
+======================================== */
+
+.windowWrapper {
+    position: relative;
+
+    width: min(620px, 52vw);
+
+    margin-top: 4.75rem;
+
+    overflow: visible;
+
+    transition:
+        transform 0.6s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* ========================================
+   WINDOW
+======================================== */
+
+.window {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.12),
+        0 3px 12px rgba(0, 0, 0, 0.07);
+
+    z-index: 2;
+}
+
+
+/* ========================================
+   MACOS TOP BAR
+======================================== */
+
+.windowBar {
+    position: relative;
+
+    width: 100%;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+
+    background: #fdfdfd;
+
+    border-bottom: 1px solid #ededed;
+}
+
+
+/* ========================================
+   TRAFFIC LIGHTS
+======================================== */
+
+.windowControls {
+    position: absolute;
+
+    top: 20px;
+    left: 15px;
+
+    display: flex;
+    gap: 8px;
+
+    z-index: 5;
+}
+
+.control {
+    position: relative;
+
+    width: 13px;
+    height: 13px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-family: Arial, sans-serif;
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+
+    span {
+        opacity: 0;
+
+        font-size: 9px;
+        font-weight: 700;
+        line-height: 1;
+
+        transition: opacity 0.15s ease;
+    }
+
+    &:hover {
+        transform: scale(1.12);
+
+        span {
+            opacity: 1;
+        }
+    }
+}
+
+.close {
+    background: #ff5f57;
+    color: #8c0000;
+}
+
+.minimize {
+    background: #febc2e;
+    color: #8a6000;
+}
+
+.expand {
+    background: #28c840;
+    color: #126b20;
+}
+
+
+/* ========================================
+   BACK / FORWARD
+======================================== */
+
+.windowLeftControls {
+    position: absolute;
+
+    left: 94px;
+
+    top: 11px;
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 5px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+}
+
+.navigationButton {
+    width: 31px;
+    height: 30px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    &+& {
+        border-left: 1px solid #ededed;
+    }
+
+    &:hover {
+        background: #f4f4f4;
+        border-radius: 10px;
+    }
+}
+
+/* ========================================
+   WINDOW TITLE
+======================================== */
+
+.windowTitle {
+    position: absolute;
+
+    left: 35%;
+    transform: translateX(-50%);
+
+    color: #222;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   RIGHT ACTIONS
+======================================== */
+
+.windowActions {
+    position: absolute;
+
+    right: 8px;
+    top: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.toolbarGroup {
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+
+    padding: 0 3px;
+
+    border: 1px solid #f2f2f2;
+    border-radius: 18px;
+
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+}
+
+.actionButton,
+.chevronButton,
+.searchButton {
+    width: 27px;
+    height: 30px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 15px;
+
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    &:hover {
+        background: #f1f1f1;
+
+        transform: scale(1.03);
+    }
+}
+
+.chevronButton {
+    width: 19px;
+}
+
+.toolbarIcon {
+    width: 18px;
+    height: 18px;
+
+    color: #646464;
+}
+
+
+/* ========================================
+   GRID ICON
+======================================== */
+
+.gridIcon {
+    width: 18px;
+    height: 18px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 7px);
+    grid-template-rows: repeat(2, 7px);
+
+    gap: 2px;
+
+    i {
+        display: block;
+
+        border: 1.4px solid #555;
+        border-radius: 2px;
+    }
+}
+
+
+/* ========================================
+   LIST ICON
+======================================== */
+
+.listIcon {
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 3px;
+
+    i {
+        display: block;
+
+        width: 16px;
+        height: 2px;
+
+        border-radius: 2px;
+
+        background: #555;
+    }
+}
+
+
+/* ========================================
+   SHARE
+======================================== */
+
+.shareIcon {
+    position: relative;
+
+    width: 15px;
+    height: 17px;
+
+    border: 1.5px solid #999;
+
+    border-top: 0;
+
+    border-radius: 2px;
+
+    &::before {
+        content: '';
+
+        position: absolute;
+
+        left: 50%;
+        top: -5px;
+
+        width: 7px;
+        height: 7px;
+
+        border-left: 1.5px solid #777;
+        border-top: 1.5px solid #777;
+
+        transform:
+            translateX(-50%) rotate(45deg);
+    }
+}
+
+
+/* ========================================
+   TAG
+======================================== */
+
+.tagIcon {
+    width: 14px;
+    height: 10px;
+
+    border: 1.5px solid #999;
+
+    border-radius: 2px;
+
+    transform: rotate(-45deg);
+
+    &::after {
+        content: '';
+
+        position: absolute;
+
+        width: 3px;
+        height: 3px;
+
+        border: 1px solid #999;
+        border-radius: 50%;
+    }
+}
+
+
+/* ========================================
+   MORE
+======================================== */
+
+.moreIcon {
+    color: #555;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.searchButton {
+    width: 36px;
+    height: 36px;
+
+    border: 1px solid #f2f2f2;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+/* ========================================
+   WINDOW BODY
+======================================== */
+
+.windowBody {
+    display: flex;
+
+    width: 100%;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    flex: 0 0 126px;
+
+    padding: 14px 8px 18px;
+
+    background: #fafafa;
+
+    border-right: 1px solid #ededed;
+
+    font-family: Arial, sans-serif;
+}
+
+.sidebarSection {
+    margin-bottom: 17px;
+}
+
+.sidebarHeading {
+    display: block;
+
+    padding:
+        0 12px 4px;
+
+    color: #777;
+
+    font-size: 8px;
+    font-weight: 500;
+}
+
+.sidebarItem {
+    height: 28px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    border-radius: 6px;
+
+    color: #303030;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+.sidebarItem.active {
+    background: #dceeff;
+
+    color: #1477d4;
+}
+
+.sidebarIcon {
+    width: 15px;
+
+    display: flex;
+    justify-content: center;
+
+    color: inherit;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.windowContent {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    // min-height: 370px;
+
+    background: #fff;
+
+    overflow: hidden;
+}
+
+.contentImage {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* ========================================
+   FOLDERS
+
+   THESE ARE OUTSIDE .window
+======================================== */
+
+.folderLayer {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.folder {
+    position: absolute;
+
+    width: 105px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #222;
+    text-decoration: none;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+
+    animation:
+        folderBounce 10s ease-in-out infinite;
+
+    transition:
+        filter 0.25s ease;
+}
+
+.folder:hover {
+    filter:
+        drop-shadow(0 7px 10px rgba(0, 0, 0, 0.14));
+}
+
+
+/* ========================================
+   FOLDER POSITIONS
+
+   Outside the window
+======================================== */
+
+.folder1 {
+    top: 70%;
+    left: -40px;
+
+    animation-delay: 0s;
+}
+
+.folder2 {
+    top: 15%;
+    right: -40px;
+
+    animation-delay: 3.2s;
+}
+
+.folder3 {
+    bottom: 15%;
+    left: -105px;
+
+    animation-delay: 6.1s;
+}
+
+.folder4 {
+    bottom: 14%;
+    right: -105px;
+
+    animation-delay: 8.4s;
+}
+
+
+/* ========================================
+   FOLDER ICON
+======================================== */
+
+.folderIcon {
+    position: relative;
+
+    width: 72px;
+    height: 58px;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.folderImage {
+    object-fit: contain;
+}
+
+.folder:hover .folderIcon {
+    transform: translateY(-4px) scale(1.05);
+
+    filter: brightness(1.04);
+}
+
+.folderLabel {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   SUBTLE BOUNCE
+
+   One tiny movement every ~10 seconds
+======================================== */
+
+@keyframes folderBounce {
+
+    0%,
+    88%,
+    100% {
+        transform: translateY(0);
+    }
+
+    91% {
+        transform: translateY(-7px);
+    }
+
+    94% {
+        transform: translateY(0);
+    }
+
+    96% {
+        transform: translateY(-3px);
+    }
+
+    98% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   CONTACT STATE
+======================================== */
+
+.contactWindow {
+    width: 100%;
+
+    min-height: 180px;
+
+    padding: 2rem;
+
+    border: 0;
+    border-radius: 18px;
+
+    background: #fff;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    animation:
+        contactAppear 0.55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.contactText {
+    font-size: 16px;
+}
+
+.contactLink {
+    color: #222;
+
+    font-size: 14px;
+
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@keyframes contactAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ========================================
+   BOTTOM
+======================================== */
+
+.introBottom {
+    position: relative;
+
+    width: min(700px, 90vw);
+
+    margin-top: 3rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+.introText {
+    max-width: 620px;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.arrow {
+    position: absolute;
+
+    right: -70px;
+    bottom: -45px;
+
+    width: 85px;
+    height: 85px;
+
+    transform: rotate(-5deg);
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .intro {
+        padding:
+            1.5rem 1rem 4rem;
+    }
+
+    .logo {
+        top: 1.3rem;
+
+        font-size: 2rem;
+    }
+
+    .windowWrapper {
+        width: 64vw;
+
+        margin-top: 4.25rem;
+    }
+
+
+    /* window */
+
+    .window {
+        border-radius: 13px;
+    }
+
+    .windowBar {
+        height: 40px;
+    }
+
+    .windowControls {
+        top: 14px;
+        left: 11px;
+
+        gap: 5px;
+    }
+
+    .control {
+        width: 10px;
+        height: 10px;
+
+        span {
+            font-size: 6px;
+        }
+    }
+
+
+    /* navigation */
+
+    .windowLeftControls {
+        left: 66px;
+
+        top: 8px;
+
+        height: 25px;
+    }
+
+    .navigationButton {
+        width: 25px;
+        height: 24px;
+    }
+
+
+    /* title */
+
+    .windowTitle {
+        font-size: 9px;
+    }
+
+
+    /* right */
+
+    .windowActions {
+        right: 3px;
+        top: 4px;
+
+        gap: 2px;
+    }
+
+    .toolbarGroup {
+        height: 32px;
+
+        padding: 0 1px;
+    }
+
+    .actionButton {
+        width: 22px;
+        height: 28px;
+    }
+
+    .chevronButton {
+        width: 14px;
+        height: 28px;
+    }
+
+    .searchButton {
+        width: 28px;
+        height: 32px;
+    }
+
+    .toolbarIcon {
+        width: 14px;
+        height: 14px;
+    }
+
+
+    /* sidebar */
+
+    .sidebar {
+        flex-basis: 82px;
+
+        padding: 10px 5px;
+    }
+
+    .sidebarItem {
+        height: 24px;
+
+        padding: 0 6px;
+
+        gap: 4px;
+
+        font-size: 7px;
+    }
+
+    .sidebarHeading {
+        padding-left: 7px;
+
+        font-size: 6px;
+    }
+
+    .sidebarIcon {
+        width: 11px;
+
+        font-size: 9px;
+    }
+
+
+    /* content */
+
+    .windowContent {
+        min-height: 265px;
+    }
+
+
+    /* folders */
+
+    .folder {
+        width: 70px;
+    }
+
+    .folderIcon {
+        width: 50px;
+        height: 40px;
+    }
+
+    .folderLabel {
+        font-size: 9px;
+    }
+
+    .folder1 {
+        left: -70px;
+    }
+
+    .folder2 {
+        right: -70px;
+    }
+
+    .folder3 {
+        left: -70px;
+    }
+
+    .folder4 {
+        right: -70px;
+    }
+
+
+    /* bottom */
+
+    .introBottom {
+        width: 90vw;
+
+        margin-top: 2rem;
+    }
+
+    .introText {
+        font-size: 14px;
+    }
+
+    .arrow {
+        right: -5px;
+        bottom: -55px;
+
+        width: 60px;
+        height: 60px;
+    }
+}

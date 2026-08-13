@@ -16,7 +16,6 @@ export default function Home() {
           <div key={item.id}>
             {item.type === 'photo' ? (
               <PhotoCard
-                id={item.id}
                 title={numberedTitle}
                 collageSrc={item.collageSrc}
                 productImageSrc={item.productImageSrc}
@@ -24,7 +23,6 @@ export default function Home() {
               />
             ) : item.type === 'showcase' ? (
               <ShowcaseCard
-  id={item.id}
   title={numberedTitle}
   videoSrc={item.videoSrc}
   productImageSrc={item.productImageSrc}
@@ -33,7 +31,6 @@ export default function Home() {
 />
             ) : (
               <ProjectCard
-                id={item.id}
                 title={numberedTitle}
                 videoSrc={item.videoSrc}
                 videoOrientation={item.videoOrientation}

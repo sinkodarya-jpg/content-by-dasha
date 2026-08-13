@@ -1,11 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './ProjectCard.module.scss'
 
 type ProjectCardProps = {
-  id: string
   title: string
   videoSrc: string
   videoOrientation: 'vertical' | 'horizontal'
@@ -14,7 +12,6 @@ type ProjectCardProps = {
 }
 
 export default function ProjectCard({
-  id,
   title,
   videoSrc,
   videoOrientation,
@@ -34,7 +31,8 @@ export default function ProjectCard({
           </a>
         )}
       </div>
-      <Link href={`/projects/${id}`} className={styles.projectCardLink}>
+      {/* Restore the project link when the detail pages are ready. */}
+      <div className={styles.projectCardLink}>
         {videoOrientation === 'vertical' ? (
           <div className={styles.verticalProject}>
             <div className={styles.verticalProduct}>
@@ -56,7 +54,7 @@ export default function ProjectCard({
             <p className={styles.horizontalTitle}>{title}</p>
           </div>
         )}
-      </Link>
+      </div>
     </article>
   )
 }
