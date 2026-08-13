@@ -569,7 +569,7 @@ export default function FinderWindow() {
                 <div className={styles.contactContent}>
 
                   <p className={styles.contactText}>
-                    i’d love to work together
+                    hey, let’s create something beautiful together
                   </p>
 
                   <a
