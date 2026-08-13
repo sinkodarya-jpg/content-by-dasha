@@ -223,15 +223,35 @@
 
     background: transparent;
 
+    color: #606060;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
 
+    transition:
+        color 0.15s ease;
+
     & + & {
         border-left: 1px solid #ededed;
     }
+
+    &:hover {
+        color: #333;
+    }
+}
+
+.navigationButton .toolbarIcon {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 auto;
+
+    stroke-width: 2.1;
+
+    vector-effect: non-scaling-stroke;
 }
 
 
@@ -264,7 +284,7 @@
 
 /* ========================================
    RIGHT ACTIONS
-   NO HOVER
+   NO HOVER ON ICONS
 ======================================== */
 
 .windowActions {
@@ -296,17 +316,17 @@
         0 1px 5px rgba(0, 0, 0, 0.04);
 }
 
+
+/* ========================================
+   COMMON TOOLBAR BUTTONS
+======================================== */
+
 .actionButton,
 .chevronButton,
 .searchButton {
-    width: 27px;
-    height: 30px;
-
     padding: 0;
 
     border: 0;
-
-    border-radius: 15px;
 
     background: #fff;
 
@@ -314,18 +334,117 @@
     align-items: center;
     justify-content: center;
 
+    color: #656565;
+
     cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.actionButton:hover,
+.chevronButton:hover,
+.searchButton:hover {
+    background: #f5f5f5;
+
+    color: #333;
+}
+
+
+/* ========================================
+   TOOLBAR ICON
+======================================== */
+
+.toolbarIcon {
+    width: 16px;
+    height: 16px;
+
+    flex: 0 0 auto;
+
+    color: #656565;
+
+    stroke-width: 1.8;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* ========================================
+   GRID / LIST
+======================================== */
+
+.actionButton {
+    width: 27px;
+    height: 30px;
+
+    border-radius: 15px;
+}
+
+.actionButton .toolbarIcon {
+    width: 16px;
+    height: 16px;
+
+    stroke-width: 1.8;
 }
 
 .chevronButton {
     width: 19px;
+    height: 30px;
+
+    border-radius: 15px;
 }
 
-.toolbarIcon {
-    width: 18px;
-    height: 18px;
+.chevronButton .toolbarIcon {
+    width: 9px;
+    height: 9px;
 
-    color: #646464;
+    stroke-width: 2;
+}
+
+
+/* ========================================
+   SHARE / TAG / MORE
+======================================== */
+
+.iconButton {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #fafafa;
+
+    color: #656565;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.iconButton:hover {
+    background: #f5f5f5;
+
+    color: #333;
+}
+
+.iconButton .toolbarIcon {
+    width: 16px;
+    height: 16px;
+
+    stroke-width: 1.8;
+
+    vector-effect: non-scaling-stroke;
 }
 
 
@@ -337,10 +456,34 @@
     width: 36px;
     height: 36px;
 
+    margin-left: 2px;
+
     border: 1px solid #f2f2f2;
+
     border-radius: 50%;
 
-    background: #fff;
+    background: #fafafa;
+
+    color: #555;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.012),
+        0 1px 4px rgba(0, 0, 0, 0.025);
+}
+
+.searchButton:hover {
+    background: #f5f5f5;
+
+    color: #333;
+}
+
+.searchButton .toolbarIcon {
+    width: 17px;
+    height: 17px;
+
+    stroke-width: 1.9;
+
+    vector-effect: non-scaling-stroke;
 }
 
 
@@ -387,6 +530,11 @@
     font-weight: 500;
 }
 
+
+/* ========================================
+   SIDEBAR ITEM
+======================================== */
+
 .sidebarItem {
     width: 100%;
     height: 28px;
@@ -413,6 +561,14 @@
     text-align: left;
 
     cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.sidebarItem:hover {
+    background: rgba(235, 231, 231, 0.45);
 }
 
 .sidebarItem.active {
@@ -421,17 +577,35 @@
     color: #1477d4;
 }
 
+
+/* ========================================
+   SIDEBAR ICON
+======================================== */
+
 .sidebarIcon {
-    width: 15px;
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 18px;
 
     display: flex;
+    align-items: center;
     justify-content: center;
 
+    margin-right: 6px;
+
     color: inherit;
+}
 
-    font-size: 13px;
+.sidebarIcon svg {
+    width: 16px;
+    height: 16px;
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
+
+    stroke-width: 1.8;
+
+    vector-effect: non-scaling-stroke;
 }
 
 
@@ -471,6 +645,8 @@
 ======================================== */
 
 .contactContent {
+    position: relative;
+
     width: 100%;
     height: 100%;
 
@@ -532,10 +708,13 @@
 }
 
 .contactClose {
-    margin-top: 8px;
+    position: absolute;
 
-    width: 22px;
-    height: 22px;
+    top: 16px;
+    right: 16px;
+
+    width: 24px;
+    height: 24px;
 
     padding: 0;
 
@@ -546,12 +725,20 @@
     color: #777;
 
     font-family: Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: 300;
     line-height: 1;
 
     cursor: pointer;
+
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.5;
+    }
 }
+
+
 /* ========================================
    FOLDERS
 
@@ -759,7 +946,9 @@
     }
 
 
-    /* logo */
+    /* ====================================
+       LOGO
+    ==================================== */
 
     .logo {
         top: 1.3rem;
@@ -768,7 +957,9 @@
     }
 
 
-    /* window */
+    /* ====================================
+       WINDOW
+    ==================================== */
 
     .windowWrapper {
         width: 64vw;
@@ -785,7 +976,9 @@
     }
 
 
-    /* traffic lights */
+    /* ====================================
+       TRAFFIC LIGHTS
+    ==================================== */
 
     .windowControls {
         top: 14px;
@@ -804,7 +997,9 @@
     }
 
 
-    /* navigation */
+    /* ====================================
+       NAVIGATION
+    ==================================== */
 
     .windowLeftControls {
         left: 66px;
@@ -819,15 +1014,26 @@
         height: 24px;
     }
 
+    .navigationButton .toolbarIcon {
+        width: 14px;
+        height: 14px;
 
-    /* title */
+        stroke-width: 2.1;
+    }
+
+
+    /* ====================================
+       TITLE
+    ==================================== */
 
     .windowTitle {
         font-size: 9px;
     }
 
 
-    /* right actions */
+    /* ====================================
+       RIGHT ACTIONS
+    ==================================== */
 
     .windowActions {
         right: 3px;
@@ -847,23 +1053,37 @@
         height: 28px;
     }
 
+    .actionButton .toolbarIcon {
+        width: 14px;
+        height: 14px;
+    }
+
     .chevronButton {
         width: 14px;
         height: 28px;
     }
 
+    .chevronButton .toolbarIcon {
+        width: 8px;
+        height: 8px;
+    }
+
     .searchButton {
         width: 28px;
         height: 32px;
+
+        margin-left: 0;
     }
 
-    .toolbarIcon {
-        width: 14px;
-        height: 14px;
+    .searchButton .toolbarIcon {
+        width: 15px;
+        height: 15px;
     }
 
 
-    /* sidebar */
+    /* ====================================
+       SIDEBAR
+    ==================================== */
 
     .sidebar {
         flex-basis: 82px;
@@ -888,13 +1108,25 @@
     }
 
     .sidebarIcon {
-        width: 11px;
+        width: 16px;
+        height: 16px;
 
-        font-size: 9px;
+        flex-basis: 16px;
+
+        margin-right: 3px;
+    }
+
+    .sidebarIcon svg {
+        width: 13px;
+        height: 13px;
+
+        stroke-width: 1.8;
     }
 
 
-    /* content */
+    /* ====================================
+       CONTENT
+    ==================================== */
 
     .windowContent {
         min-height: 265px;
@@ -915,7 +1147,9 @@
     }
 
 
-    /* folders */
+    /* ====================================
+       FOLDERS
+    ==================================== */
 
     .folder {
         width: 70px;
@@ -947,7 +1181,9 @@
     }
 
 
-    /* bottom */
+    /* ====================================
+       BOTTOM
+    ==================================== */
 
     .introBottom {
         width: 90vw;

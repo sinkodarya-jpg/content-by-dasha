@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from './Intro.module.scss'
+import styles from './test.module.scss'
 import { introFolders, site } from '../data/site'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/tookbydasha/'
@@ -73,8 +73,13 @@ const List = () => (
   </svg>
 )
 
-const ChevronDown = () => (
+const ChevronDown = ({
+  className,
+}: {
+  className?: string
+}) => (
   <svg
+    className={className}
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -254,10 +259,46 @@ const Download = () => (
 )
 
 /* =========================================================
-   INTRO
+   SIDEBAR ITEM
 ========================================================= */
 
-export default function Intro() {
+type SidebarItemProps = {
+  icon: React.ReactNode
+  label: string
+  active?: boolean
+  onClick: () => void
+}
+
+function SidebarItem({
+  icon,
+  label,
+  active = false,
+  onClick,
+}: SidebarItemProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`${styles.sidebarItem} ${
+        active ? styles.active : ''
+      }`}
+    >
+      <span className={styles.sidebarIcon}>
+        {icon}
+      </span>
+
+      <span className={styles.sidebarLabel}>
+        {label}
+      </span>
+    </button>
+  )
+}
+
+/* =========================================================
+   FINDER WINDOW
+========================================================= */
+
+export default function FinderWindow() {
   const [isMinimized, setIsMinimized] = useState(false)
 
   const openContact = () => {
@@ -271,124 +312,185 @@ export default function Intro() {
   return (
     <section className={styles.intro}>
 
-      {/* =========================
+      {/* ===================================================
           WINDOW + FOLDERS
-      ========================= */}
+      =================================================== */}
 
       <div className={styles.windowWrapper}>
 
-        {/* =========================
-            MACOS WINDOW
-        ========================= */}
+        {/* =================================================
+            FINDER WINDOW
+        ================================================= */}
 
         <div className={styles.window}>
 
-          {/* =========================
-              TOP BAR
-          ========================= */}
+          {/* ===============================================
+              TRAFFIC LIGHTS
+          =============================================== */}
 
-          <div className={styles.windowBar}>
+          <div className={styles.trafficLights}>
 
-            {/* TRAFFIC LIGHTS */}
+  <button
+    type="button"
+    className={`${styles.trafficLight} ${styles.close}`}
+    onClick={openContact}
+    aria-label="Close"
+  >
+    <span>×</span>
+  </button>
 
-            <div className={styles.windowControls}>
+  <button
+    type="button"
+    className={`${styles.trafficLight} ${styles.minimize}`}
+    onClick={openContact}
+    aria-label="Minimize"
+  >
+    <span>−</span>
+  </button>
 
-              <button
-                type="button"
-                className={`${styles.control} ${styles.close}`}
+  <button
+    type="button"
+    className={`${styles.trafficLight} ${styles.maximize}`}
+    onClick={openContact}
+    aria-label="Maximize"
+  >
+    <span>+</span>
+  </button>
+
+</div>
+
+          {/* ===============================================
+              SIDEBAR
+          =============================================== */}
+
+          <aside className={styles.sidebar}>
+
+            <div className={styles.sidebarTop}>
+
+              <SidebarItem
+                icon={<Clock3 />}
+                label="Recents"
+                active
                 onClick={openContact}
-                aria-label="Close"
-              >
-                <span>×</span>
-              </button>
+              />
 
-              <button
-                type="button"
-                className={`${styles.control} ${styles.minimize}`}
+              <SidebarItem
+                icon={<Folder />}
+                label="Shared"
                 onClick={openContact}
-                aria-label="Minimize"
-              >
-                <span>−</span>
-              </button>
-
-              <button
-                type="button"
-                className={`${styles.control} ${styles.expand}`}
-                onClick={openContact}
-                aria-label="Expand"
-              >
-                <span>+</span>
-              </button>
+              />
 
             </div>
 
 
-            {/* BACK / FORWARD */}
+            <div className={styles.section}>
 
-            <div className={styles.windowLeftControls}>
+              <div className={styles.sectionTitle}>
+                Favorites
+              </div>
 
-              <button
-                type="button"
-                className={styles.navigationButton}
+              <SidebarItem
+                icon={<AppWindow />}
+                label="Applications"
                 onClick={openContact}
-                aria-label="Back"
-              >
-                <ArrowLeft />
-              </button>
+              />
 
-              <button
-                type="button"
-                className={styles.navigationButton}
+              <SidebarItem
+                icon={<Monitor />}
+                label="Desktop"
                 onClick={openContact}
-                aria-label="Forward"
-              >
-                <ArrowRight />
-              </button>
+              />
+
+              <SidebarItem
+                icon={<FileText />}
+                label="Documents"
+                onClick={openContact}
+              />
+
+              <SidebarItem
+                icon={<Download />}
+                label="Downloads"
+                onClick={openContact}
+              />
 
             </div>
 
-
-            {/* TITLE */}
-
-            <span className={styles.windowTitle}>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @tookbydasha
-              </a>
-            </span>
+          </aside>
 
 
-            {/* RIGHT ACTIONS */}
+          {/* ===============================================
+              MAIN
+          =============================================== */}
 
-            <div className={styles.windowActions}>
+          <main className={styles.main}>
 
-              <div className={styles.toolbarGroup}>
+            {/* =============================================
+                TOOLBAR
+            ============================================= */}
+
+            <header className={styles.toolbar}>
+
+              {/* BACK / FORWARD */}
+
+              <div className={styles.navigation}>
 
                 <button
                   type="button"
-                  className={styles.actionButton}
+                  className={styles.navButton}
                   onClick={openContact}
-                  aria-label="Icon view"
+                  aria-label="Back"
                 >
-                  <Grid2X2 />
+                  <ArrowLeft />
                 </button>
 
+                <span className={styles.navDivider} />
+
                 <button
                   type="button"
-                  className={styles.chevronButton}
+                  className={`${styles.navButton} ${styles.disabled}`}
                   onClick={openContact}
-                  aria-label="View options"
+                  aria-label="Forward"
                 >
-                  <ChevronDown />
+                  <ArrowRight />
                 </button>
 
               </div>
 
 
-              <div className={styles.toolbarGroup}>
+              {/* TITLE */}
+
+              <div className={styles.title}>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @tookbydasha
+                </a>
+              </div>
+
+
+              {/* ACTIONS */}
+
+              <div className={styles.actions}>
+
+                {/* GRID */}
+
+                <button
+                  type="button"
+                  className={styles.actionButton}
+                  onClick={openContact}
+                  aria-label="Grid view"
+                >
+                  <Grid2X2 />
+
+                  <ChevronDown
+                    className={styles.tinyChevron}
+                  />
+                </button>
+
+
+                {/* LIST */}
 
                 <button
                   type="button"
@@ -397,151 +499,70 @@ export default function Intro() {
                   aria-label="List view"
                 >
                   <List />
+
+                  <ChevronDown
+                    className={styles.tinyChevron}
+                  />
                 </button>
+
+
+                {/* SHARE */}
 
                 <button
                   type="button"
-                  className={styles.chevronButton}
-                  onClick={openContact}
-                  aria-label="Sort options"
-                >
-                  <ChevronDown />
-                </button>
-
-              </div>
-
-
-              <div className={styles.toolbarGroup}>
-
-                <button
-                  type="button"
-                  className={styles.actionButton}
+                  className={styles.iconButton}
                   onClick={openContact}
                   aria-label="Share"
                 >
                   <Share />
                 </button>
 
+
+                {/* TAG */}
+
                 <button
                   type="button"
-                  className={styles.actionButton}
+                  className={styles.iconButton}
                   onClick={openContact}
                   aria-label="Tags"
                 >
                   <Tag />
                 </button>
 
+
+                {/* MORE */}
+
                 <button
                   type="button"
-                  className={styles.actionButton}
+                  className={styles.iconButton}
                   onClick={openContact}
-                  aria-label="More actions"
+                  aria-label="More"
                 >
                   <MoreHorizontal />
                 </button>
 
-              </div>
 
-
-              <button
-                type="button"
-                className={styles.searchButton}
-                onClick={openContact}
-                aria-label="Search"
-              >
-                <Search />
-              </button>
-
-            </div>
-
-          </div>
-
-
-          {/* =========================
-              WINDOW BODY
-          ========================= */}
-
-          <div className={styles.windowBody}>
-
-            {/* SIDEBAR */}
-
-            <aside className={styles.sidebar}>
-
-              <div className={styles.sidebarSection}>
+                {/* SEARCH */}
 
                 <button
                   type="button"
-                  className={`${styles.sidebarItem} ${styles.active}`}
+                  className={styles.searchButton}
                   onClick={openContact}
+                  aria-label="Search"
                 >
-                  <Clock3 />
-                  <span>Recents</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.sidebarItem}
-                  onClick={openContact}
-                >
-                  <Folder />
-                  <span>Shared</span>
+                  <Search />
                 </button>
 
               </div>
 
-
-              <div className={styles.sidebarSection}>
-
-                <span className={styles.sidebarHeading}>
-                  Favorites
-                </span>
-
-                <button
-                  type="button"
-                  className={styles.sidebarItem}
-                  onClick={openContact}
-                >
-                  <AppWindow />
-                  <span>Applications</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.sidebarItem}
-                  onClick={openContact}
-                >
-                  <Monitor />
-                  <span>Desktop</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.sidebarItem}
-                  onClick={openContact}
-                >
-                  <FileText />
-                  <span>Documents</span>
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.sidebarItem}
-                  onClick={openContact}
-                >
-                  <Download />
-                  <span>Downloads</span>
-                </button>
-
-              </div>
-
-            </aside>
+            </header>
 
 
-            {/* =========================
+            {/* =============================================
                 CONTENT
-            ========================= */}
+            ============================================= */}
 
-            <main className={styles.windowContent}>
+            <div className={styles.content}>
 
               {isMinimized ? (
 
@@ -579,17 +600,16 @@ export default function Intro() {
 
               )}
 
-            </main>
+            </div>
 
-          </div>
+          </main>
 
         </div>
 
 
-        {/* =========================
+        {/* =================================================
             FOLDERS
-            OUTSIDE THE WINDOW
-        ========================= */}
+        ================================================= */}
 
         <div className={styles.folderLayer}>
 
@@ -597,7 +617,9 @@ export default function Intro() {
             <Link
               key={link.href}
               href={link.href}
-              className={`${styles.folder} ${styles[`folder${index + 1}`]}`}
+              className={`${styles.folder} ${
+                styles[`folder${index + 1}`]
+              }`}
             >
 
               <span className={styles.folderIcon}>
@@ -606,7 +628,7 @@ export default function Intro() {
                   src="/images/intro/folder.png"
                   alt=""
                   fill
-                  sizes="72px"
+                  sizes="105px"
                   className={styles.folderImage}
                 />
 
@@ -624,9 +646,9 @@ export default function Intro() {
       </div>
 
 
-      {/* =========================
+      {/* =================================================
           INTRO TEXT
-      ========================= */}
+      ================================================= */}
 
       <div className={styles.introBottom}>
 
@@ -650,9 +672,9 @@ export default function Intro() {
         </p>
 
 
-        {/* =========================
+        {/* ===============================================
             ARROW
-        ========================= */}
+        =============================================== */}
 
         <svg
           className={styles.arrow}
