@@ -39,7 +39,7 @@ export default function ProjectCard({
           <div className={styles.verticalProject}>
             <div className={styles.verticalProduct}>
               <Image src={productImageSrc} alt={title} width={0} height={0} priority sizes="40vw" className={styles.verticalProductImage} />
-              <p className={styles.verticalTitle}>{title}</p>
+              <p className={styles.verticalTitle}>({id})&nbsp;{title}</p>
             </div>
             <div className={styles.verticalVideo}>
               <video src={videoSrc} autoPlay loop muted playsInline className={styles.coverImage} />
@@ -53,7 +53,7 @@ export default function ProjectCard({
             <div className={styles.horizontalProduct}>
               <Image src={productImageSrc} alt={title} width={0} height={0} sizes="40vw" className={styles.productImage} />
             </div>
-            <p className={styles.horizontalTitle}>{title}</p>
+            <p className={styles.horizontalTitle}>({id}) {title}</p>
           </div>
         )}
       </div>

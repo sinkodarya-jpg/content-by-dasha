@@ -84,7 +84,7 @@ export default function ShowcaseCard({
             />
 
             <p className={styles.cardTitle}>
-              {title}
+             ({id})&nbsp;{title}
             </p>
           </div>
         </div>

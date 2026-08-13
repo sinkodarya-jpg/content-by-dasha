@@ -12,6 +12,7 @@ type PhotoCardProps = {
 }
 
 export default function PhotoCard({
+  id,
   title,
   collageSrc,
   productImageSrc,
@@ -38,7 +39,7 @@ export default function PhotoCard({
             <Image src={productImageSrc} alt={title} width={0} height={0} sizes="25vw" className={styles.productImage} />
           </div>
         </div>
-        <p className={styles.cardTitle}>{title}</p>
+        <p className={styles.cardTitle}>({id})&nbsp;{title}</p>
       </div>
     </article>
   )
