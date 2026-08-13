@@ -107,6 +107,15 @@ export const homeProjects: HomeProject[] = [
     instagramUrl: "https://www.instagram.com/reel/DbTTo7RKM9V/?hl=en",
   },
   {
+type: "video",
+    id: "sudoku",
+    title: "Get My Sudoku",
+    videoSrc: "/home-projects/sudoku/video.mp4",
+        videoOrientation: "vertical",
+    productImageSrc: "/home-projects/sudoku/product.png",
+    instagramUrl: "https://www.instagram.com/p/DbME9sXOTl0/?hl=en",
+  },
+  {
     type: "showcase",
     id: "everyday-bars",
     title: "Everyday Bars",
@@ -123,15 +132,7 @@ export const homeProjects: HomeProject[] = [
     productImageSrc: "/home-projects/en-route/product.png",
     instagramUrl: "https://www.instagram.com/reel/DZcs8ArK5aR/?hl=en",
   },
-  {
-    type: "showcase",
-    id: "sudoku",
-    title: "Get My Sudoku",
-    videoSrc: "/home-projects/sudoku/video.mp4",
-    productImageSrc: "/home-projects/sudoku/product.png",
-    overlaySrc: "/home-projects/sudoku/overlay.png",
-    instagramUrl: "https://www.instagram.com/p/DbME9sXOTl0/?hl=en",
-  },
+
   {
     type: "video",
     id: "joocyee",
