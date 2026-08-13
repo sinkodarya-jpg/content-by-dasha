@@ -89,7 +89,6 @@ export const homeProjects: HomeProject[] = [
     productImageSrc: "/home-projects/joocyee/product.png",
     instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
   },
-
   {
     type: "showcase",
     id: "everyday-bars",
@@ -98,5 +97,22 @@ export const homeProjects: HomeProject[] = [
     productImageSrc: "/home-projects/everyday-bars/product.png",
     overlaySrc: "/home-projects/everyday-bars/overlay.png",
   },
+  {
+    type: "video",
+    id: "gina-tricot-2",
+    title: "(9) Gina Tricot",
+    videoSrc: "/home-projects/gina-tricot-2/video.mp4",
+    videoOrientation: "horizontal",
+    productImageSrc: "/home-projects/gina-tricot-2/product.png",
+  },
+  {
+    type: "showcase",
+    id: "sudoku",
+    title: "(10) Get My Sudoku",
+    videoSrc: "/home-projects/sudoku/video.mp4",
+    productImageSrc: "/home-projects/sudoku/product.png",
+    overlaySrc: "/home-projects/sudoku/overlay.png",
+    instagramUrl: "https://www.instagram.com/p/DbME9sXOTl0/?hl=en",
 
+  },
 ];
