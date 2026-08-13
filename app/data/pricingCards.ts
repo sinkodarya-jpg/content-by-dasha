@@ -101,7 +101,7 @@ export const pricingCards = [
   {
     title: "video & photos",
     image: "/images/pricing/cards/photo-video.png",
-    titleImage: "/images/pricing/titles/video-photos.png",
+    titleImage: "/images/pricing/titles/video-photo.png",
     accent: "#dcecf3",
     options: [
       {
