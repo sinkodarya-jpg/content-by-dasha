@@ -9,12 +9,15 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <Intro/>
-      <div className={styles.projectGrid}>{homeProjects.map((item) => (
+      <div className={styles.projectGrid}>{homeProjects.map((item, index) => {
+        const numberedTitle = `(${index + 1}) ${item.title}`
+
+        return (
           <div key={item.id}>
             {item.type === 'photo' ? (
               <PhotoCard
                 id={item.id}
-                title={item.title}
+                title={numberedTitle}
                 collageSrc={item.collageSrc}
                 productImageSrc={item.productImageSrc}
                 instagramUrl={item.instagramUrl}
@@ -22,7 +25,7 @@ export default function Home() {
             ) : item.type === 'showcase' ? (
               <ShowcaseCard
   id={item.id}
-  title={item.title}
+  title={numberedTitle}
   videoSrc={item.videoSrc}
   productImageSrc={item.productImageSrc}
   overlaySrc={item.overlaySrc}
@@ -31,7 +34,7 @@ export default function Home() {
             ) : (
               <ProjectCard
                 id={item.id}
-                title={item.title}
+                title={numberedTitle}
                 videoSrc={item.videoSrc}
                 videoOrientation={item.videoOrientation}
                 productImageSrc={item.productImageSrc}
@@ -39,7 +42,8 @@ export default function Home() {
               />
             )}
           </div>
-        ))}
+        )
+      })}
       </div>
     </main>
   )
