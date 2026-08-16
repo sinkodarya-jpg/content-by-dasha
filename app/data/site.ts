@@ -1,13 +1,8 @@
 export const site = {
   email: "tookbydasha@gmail.com",
   location: "based in denmark",
-  cvr: "12345678",
-  copyrightName: "Dasha Sinko",
-  intro: [
-    "i'm dasha — a content creator from denmark.",
-    "i'm creating cozy lifestyle content inspired by home, coffee, copenhagen's streets and everyday moments",
-    "explore my latest collaborations below, and let's work together!",
-  ],
+  cvr: "46461053",
+  copyrightName: "Daria Sinko",
   contact: {
     backgroundImage: "/images/contacts/say-hello.png",
     copiedMessage: "Copied to clipboard",

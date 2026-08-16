@@ -1,1 +1,46 @@
-.tabs { position: relative; left: 50%; display: grid; width: 100vw; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #000; border-bottom: 1px solid #000; transform: translateX(-50%); }.tab { padding: .25rem; color: #2f2f2f; background: #fff; font-size: 10px; transition: color .3s, background-color .3s; &:hover { background: #f5f5f5; } & + & { border-left: 1px solid #000; } }.activeTab { color: #fff; background: #000; &:hover { background: #000; } } @media (min-width: 768px) { .tabs { margin-top: .25rem; }.tab { padding: .375rem; font-size: .875rem; } }
+.tabs {
+    position: relative;
+    left: 50%;
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: translateX(-50%);
+}
+
+.tab {
+    padding: .4rem;
+    color: #2f2f2f;
+    background: #fff;
+    font-size: 14px;
+    transition: color .3s, background-color .3s;
+
+    &:hover {
+        background: #f5f5f5;
+    }
+
+    &+& {
+        border-left: 1px solid #000;
+    }
+}
+
+.activeTab {
+    color: #fff;
+    background: #000;
+
+    &:hover {
+        background: #000;
+    }
+}
+
+@media (min-width: 768px) {
+    .tabs {
+        margin-top: .25rem;
+    }
+
+    .tab {
+        padding: .375rem;
+        font-size: .875rem;
+    }
+}
