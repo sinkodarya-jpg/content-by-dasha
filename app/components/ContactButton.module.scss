@@ -63,7 +63,7 @@
   font-weight: 500;
 
   white-space: nowrap;
-margin-left: 50px;
+margin-left: -50px;
   opacity: 0;
 
   transform: translateX(-8px);
@@ -125,7 +125,6 @@ margin-left: 50px;
   }
 
   .email {
-    margin-left: -50px;
     background: #fff;
   }
 }
