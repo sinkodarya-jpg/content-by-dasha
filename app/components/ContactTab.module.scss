@@ -1,1 +1,351 @@
-.contact { position: relative; left: 50%; width: 100vw; transform: translateX(-50%); }.contactGrid { position: relative; display: grid; }.contactBackground, .contactContent { grid-column: 1; grid-row: 1; }.contactBackground { display: block; width: 100%; user-select: none; height: max-content; }.contactContent { display: flex; flex-direction: column; align-items: center; padding-top: 8rem; }.emailWrap { position: relative; }.copied { position: absolute; top: -1.75rem; left: 50%; white-space: nowrap; color: #737373; font-size: .75rem; opacity: 0; transform: translate(-50%, .25rem); transition: opacity .3s, transform .3s; }.copiedVisible { opacity: 1; transform: translate(-50%, 0); }.emailButton { position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; overflow: visible; padding: .25rem 1rem; color: #171717; font-size: 30px; font-weight: 700; line-height: 1; }.emailHighlight { position: absolute; top: 50%; left: 0; z-index: 0; width: 100%; height: 1.15em; background: rgb(0 0 0 / 10%); transform: translateY(-50%) scaleX(0); transform-origin: left; transition: transform .5s ease-out; }.emailMarker { position: absolute; top: 50%; width: 1px; height: 1.15em; background: #000; opacity: 0; transform: translateY(-50%); transition: opacity .15s; &::before, &::after { position: absolute; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #000; content: ''; transform: translateX(-50%); } &::before { top: -3px; } &::after { bottom: -3px; } }.emailMarkerLeft { left: 0; }.emailMarkerRight { right: 0; transition-delay: .1s; }.emailButton:hover .emailHighlight { transform: translateY(-50%) scaleX(1); }.emailButton:hover .emailMarker { opacity: 1; }.emailText { position: relative; z-index: 10; }.contactDescription { max-width: 340px; margin-top: 2rem; padding: 0 1.5rem; color: #404040; text-align: center; font-size: 13px; line-height: 1.45; p { margin: 0; & + p { margin-top: 1.5rem; } } }.signoff { color: #262626; font-size: 14px; font-weight: 600; text-align: right; text-transform: lowercase; }.contactSpacer { height: 140px; } @media (min-width: 768px) { .contactContent { padding-top: 15rem; }.emailButton { font-size: 44px; }.contactDescription { max-width: 430px; margin-top: 3rem; padding: 0; font-size: 18px; line-height: 1.35; p + p { margin-top: 2rem; } }.signoff { font-size: 18px; }.contactSpacer { height: 100px; } }
+.contact {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    padding: 0;
+    background: #fff;
+    transform: translateX(-50%);
+    margin-bottom: -145px;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+.desktopLayout {
+    display: block;
+    width: 100%;
+}
+
+.desktopContent {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3.25rem 2.3rem 1.7rem;
+}
+
+.desktopHeading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.desktopTitle {
+    margin: 0;
+    color: #000;
+    font-size: clamp(4.5rem, 7vw, 7.5rem);
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 0.88;
+}
+
+.desktopDescription {
+    width: min(100%, 940px);
+    margin-top: 3.5rem;
+    color: #111;
+    font-size: clamp(1rem, 1.55vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.desktopDescription p {
+    margin: 0;
+}
+
+.desktopDescription p + p {
+    margin-top: 0.2rem;
+}
+
+.desktopSignoff {
+    margin-top: 2.7rem !important;
+}
+
+.desktopCircles {
+    display: block;
+    width: 400px;
+    height: auto;
+    margin-top: 7rem;
+    margin-left: auto;
+}
+
+.desktopPhoto {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+.emailWrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.emailButton {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1em 0;
+    border: 0;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.emailText {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   EMAIL HIGHLIGHT
+========================================================= */
+
+/*
+   Initially there is NO highlight.
+
+   On hover:
+   - highlight appears
+   - grows from left to right
+   - feels like selecting text on iOS
+*/
+
+.emailHighlight {
+    position: absolute;
+    top: 50%;
+    left: -0.03em;
+    z-index: 0;
+    width: calc(100% + 0.06em);
+    height: 0.9em;
+    background: #dceeff;
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left center;
+}
+
+
+/* Hover animation */
+
+.emailButton:hover .emailHighlight,
+.emailButton:focus-visible .emailHighlight {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+
+    transition:
+        opacity 0.12s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Animation when mouse leaves */
+
+.emailButton:not(:hover) .emailHighlight {
+    transition:
+        opacity 0.15s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   EMAIL MARKERS
+========================================================= */
+
+.emailMarker {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 1px;
+    height: 1.05em;
+    background: #000;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.15s ease;
+}
+
+.emailMarker::before,
+.emailMarker::after {
+    position: absolute;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #000;
+    content: "";
+    transform: translateX(-50%);
+}
+
+.emailMarker::before {
+    top: -2.5px;
+}
+
+.emailMarker::after {
+    bottom: -2.5px;
+}
+
+.emailMarkerLeft {
+    left: -2px;
+}
+
+.emailMarkerRight {
+    right: -2px;
+}
+
+.emailButton:hover .emailMarker,
+.emailButton:focus-visible .emailMarker {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   COPIED MESSAGE
+========================================================= */
+
+.copied {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 10;
+    white-space: nowrap;
+    color: #777;
+    font-size: 0.7rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 4px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.copiedVisible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   DESKTOP EMAIL
+========================================================= */
+
+.desktopEmailWrap {
+    margin-right: 0.5rem;
+}
+
+.desktopEmailWrap .emailButton {
+    font-size: clamp(1.2rem, 1.65vw, 1.5rem);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+.mobileLayout {
+    display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+    .desktopLayout {
+        display: none;
+    }
+
+    .mobileLayout {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .mobileContent {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .mobileTitle {
+        margin: 0;
+        color: #000;
+        font-size: clamp(3.2rem, 15vw, 4.5rem);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 0.9;
+    }
+
+    .mobileEmailWrap {
+        margin-top: 0.9rem;
+    }
+
+    .mobileEmailWrap .emailButton {
+        font-size: clamp(0.9rem, 4.2vw, 1.2rem);
+    }
+
+    .mobileDescription {
+        width: 100%;
+        max-width: 340px;
+        margin-top: 2.7rem;
+        color: #111;
+        font-size: 1rem;
+        line-height: 1.17;
+    }
+
+    .mobileDescription p {
+        margin: 0;
+    }
+
+    .mobileDescription p + p {
+        margin-top: 0.15rem;
+    }
+
+    .mobileSignoff {
+        margin-top: 2.2rem !important;
+    }
+
+    .mobileCircles {
+        display: block;
+        width: 400px;
+        max-width: 100%;
+        height: auto;
+        margin-top: 5.7rem;
+        margin-left: auto;
+    }
+
+    .mobilePhoto {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding-bottom: 15px;
+    }
+    .mobileEmailWrap .emailHighlight {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+    transition: none !important;
+}
+
+.mobileEmailWrap .emailButton:hover .emailHighlight,
+.mobileEmailWrap .emailButton:focus-visible .emailHighlight,
+.mobileEmailWrap .emailButton:not(:hover) .emailHighlight {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+    transition: none !important;
+}
+
+.mobileEmailWrap .emailMarker {
+    opacity: 0;
+}
+}
