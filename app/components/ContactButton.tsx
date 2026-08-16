@@ -11,39 +11,48 @@ export default function ContactButton() {
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
 
-  const handleClick = () => {
-    // На мобильном первый клик только раскрывает email
-    if (window.innerWidth <= 768 && !isOpen) {
-      setIsOpen(true)
+  const handlePhoneClick = () => {
+    // Desktop — клик сразу ведёт на Contacts
+    if (window.innerWidth > 768) {
+      router.push(CONTACTS_URL)
       return
     }
 
+    // Mobile — телефон только открывает / закрывает email
+    setIsOpen(prev => !prev)
+  }
+
+  const handleEmailClick = () => {
     router.push(CONTACTS_URL)
   }
 
   return (
-    <button
-      type="button"
+    <div
       className={`${styles.contactButton} ${
         isOpen ? styles.open : ''
       }`}
-      onClick={handleClick}
-      aria-label={
-        isOpen
-          ? `Contact me at ${EMAIL}`
-          : 'Contact me'
-      }
     >
-      <img
-        src="/images/phone.png"
-        alt=""
-        className={styles.phone}
-        aria-hidden="true"
-      />
+      <button
+        type="button"
+        className={styles.phoneButton}
+        onClick={handlePhoneClick}
+        aria-label="Contact me"
+      >
+        <img
+          src="/images/phone.png"
+          alt=""
+          className={styles.phone}
+          aria-hidden="true"
+        />
+      </button>
 
-      <span className={styles.email}>
+      <button
+        type="button"
+        className={styles.email}
+        onClick={handleEmailClick}
+      >
         {EMAIL}
-      </span>
-    </button>
+      </button>
+    </div>
   )
 }

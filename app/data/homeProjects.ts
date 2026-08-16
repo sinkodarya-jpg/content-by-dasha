@@ -140,7 +140,7 @@ export const homeProjects: HomeProject[] = [
     videoSrc: "/home-projects/joocyee/video.mp4",
     videoOrientation: "vertical",
     productImageSrc: "/home-projects/joocyee/product.png",
-    instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
+    instagramUrl: "https://www.instagram.com/reel/DXmHqvKDGml/",
   },
   {
     type: "video",
@@ -149,7 +149,7 @@ export const homeProjects: HomeProject[] = [
     videoSrc: "/home-projects/fit-flop/video.mp4",
     videoOrientation: "vertical",
     productImageSrc: "/home-projects/fit-flop/product.png",
-    instagramUrl: "https://www.instagram.com/reel/DYSevYgO-zG",
+    instagramUrl: "https://www.instagram.com/reel/DZZ8sMEODvk/?hl=en",
   },
   {
     type: "video",
@@ -158,6 +158,6 @@ export const homeProjects: HomeProject[] = [
     videoSrc: "/home-projects/instories/video.mp4",
     videoOrientation: "vertical",
     productImageSrc: "/home-projects/instories/product.png",
-    instagramUrl: "//www.instagram.com/p/DXhGzthDL7g/?hl=en",
+    instagramUrl: "https://www.instagram.com/reel/DXhGzthDL7g/?hl=en",
   },
 ];
