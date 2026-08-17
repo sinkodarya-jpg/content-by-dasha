@@ -26,7 +26,7 @@ export const introFolders = [
 ] as const;
 
 export const navigationItems = [
-  { label: "Projects", href: "/" },
+  { label: "Projects", href: "/#projects" },
   { label: "Prices", href: "/info?tab=prices" },
   { label: "Metrics", href: "/info?tab=metrics" },
   { label: "Contacts", href: "/info?tab=contacts" },

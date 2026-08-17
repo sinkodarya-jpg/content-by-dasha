@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <FinderWindow />
-
+<section id="projects">
       <div className={styles.projectGrid}>
         {homeProjects.map((item, index) => (
           <div key={index}>
@@ -43,6 +43,7 @@ export default function Home() {
           </div>
         ))}
       </div>
+      </section>
     </main>
   )
 }
