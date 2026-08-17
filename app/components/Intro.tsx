@@ -649,9 +649,23 @@ export default function FinderWindow() {
       {/* =================================================
           INTRO TEXT
       ================================================= */}
+ <div className={styles.mobileIntro}>
+  i'm dasha — <span className={styles.highlight}>
+    a content creator from denmark.
+  </span>
+</div>
+
+<div className={styles.mobileImage}>
+  <Image
+    src="/images/intro/intro-mobile.png"
+    alt=""
+    width={1200}
+    height={800}
+  />
+</div>
 
       <div className={styles.introBottom}>
-
+       
         <p className={styles.introText}>
 
   i'm dasha — <span className={styles.highlight}>

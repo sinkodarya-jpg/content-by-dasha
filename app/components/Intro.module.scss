@@ -987,6 +987,37 @@
    MOBILE
 ========================================================= */
 
+.mobileIntro,
+.mobileImage {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .introBottom {
+    display: none;
+  }
+
+  .mobileIntro {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+ .mobileImage {
+  display: block;
+  width: 100vw;
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.mobileImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+}
+
 @media (max-width: 900px) {
 
     .intro {
