@@ -279,9 +279,8 @@ function SidebarItem({
     <button
       type="button"
       onClick={onClick}
-      className={`${styles.sidebarItem} ${
-        active ? styles.active : ''
-      }`}
+      className={`${styles.sidebarItem} ${active ? styles.active : ''
+        }`}
     >
       <span className={styles.sidebarIcon}>
         {icon}
@@ -330,34 +329,34 @@ export default function FinderWindow() {
 
           <div className={styles.trafficLights}>
 
-  <button
-    type="button"
-    className={`${styles.trafficLight} ${styles.close}`}
-    onClick={openContact}
-    aria-label="Close"
-  >
-    <span>×</span>
-  </button>
+            <button
+              type="button"
+              className={`${styles.trafficLight} ${styles.close}`}
+              onClick={openContact}
+              aria-label="Close"
+            >
+              <span>×</span>
+            </button>
 
-  <button
-    type="button"
-    className={`${styles.trafficLight} ${styles.minimize}`}
-    onClick={openContact}
-    aria-label="Minimize"
-  >
-    <span>−</span>
-  </button>
+            <button
+              type="button"
+              className={`${styles.trafficLight} ${styles.minimize}`}
+              onClick={openContact}
+              aria-label="Minimize"
+            >
+              <span>−</span>
+            </button>
 
-  <button
-    type="button"
-    className={`${styles.trafficLight} ${styles.maximize}`}
-    onClick={openContact}
-    aria-label="Maximize"
-  >
-    <span>+</span>
-  </button>
+            <button
+              type="button"
+              className={`${styles.trafficLight} ${styles.maximize}`}
+              onClick={openContact}
+              aria-label="Maximize"
+            >
+              <span>+</span>
+            </button>
 
-</div>
+          </div>
 
           {/* ===============================================
               SIDEBAR
@@ -617,9 +616,8 @@ export default function FinderWindow() {
             <Link
               key={link.href}
               href={link.href}
-              className={`${styles.folder} ${
-                styles[`folder${index + 1}`]
-              }`}
+              className={`${styles.folder} ${styles[`folder${index + 1}`]
+                }`}
             >
 
               <span className={styles.folderIcon}>
@@ -649,44 +647,44 @@ export default function FinderWindow() {
       {/* =================================================
           INTRO TEXT
       ================================================= */}
- <div className={styles.mobileIntro}>
-  i'm dasha — <span className={styles.highlight}>
-    a content creator from denmark.
-  </span>
-</div>
+      <div className={styles.mobileIntro}>
+        hey, i'm dasha — <span className={styles.highlight}>
+          a content creator from denmark.
+        </span>
+      </div>
 
-<div className={styles.mobileImage}>
-  <Image
-    src="/images/intro/intro-mobile.png"
-    alt=""
-    width={1200}
-    height={800}
-  />
-</div>
+      <div className={styles.mobileImage}>
+        <Image
+          src="/images/intro/intro-mobile.png"
+          alt=""
+          width={1200}
+          height={800}
+        />
+      </div>
 
       <div className={styles.introBottom}>
-       
+
         <p className={styles.introText}>
 
-  i'm dasha — <span className={styles.highlight}>
-    a content creator from denmark.
-  </span>
+          i'm dasha — <span className={styles.highlight}>
+            a content creator from denmark.
+          </span>
 
-  <br />
-  <br />
+          <br />
+          <br />
 
-  i'm creating cozy lifestyle content inspired by home, coffee,
-  copenhagen's streets and everyday moments
+          i'm creating cozy lifestyle content inspired by home, coffee,
+          copenhagen's streets and everyday moments
 
-  <br />
-  <br />
+          <br />
+          <br />
 
-  explore my latest collaborations below, and{' '}
-  <span className={styles.highlight}>
-    let's work together!
-  </span>
+          explore my latest collaborations below, and{' '}
+          <span className={styles.highlight}>
+            let's work together!
+          </span>
 
-</p>
+        </p>
 
         {/* ===============================================
             ARROW
