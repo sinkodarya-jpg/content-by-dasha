@@ -111,6 +111,13 @@ className={styles.mobileNavLink}>
 >
   {site.email}
 </a>
+<a
+  href={'https://www.instagram.com/tookbydasha/'}
+  onClick={closeMenu}
+  className={styles.mobileEmail}
+>
+  my inst
+</a>
 
             </div>
 
@@ -144,6 +151,13 @@ className={styles.desktopNavLink}>
 className={styles.desktopEmail}>
           {site.email}
         </a>
+        <br/>
+        <a
+  href={'https://www.instagram.com/tookbydasha/'}
+  className={styles.desktopEmail}
+>
+  my inst
+</a>
 
       </aside>
 
