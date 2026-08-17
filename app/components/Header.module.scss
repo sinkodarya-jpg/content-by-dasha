@@ -13,9 +13,12 @@
     pointer-events: auto;
 }
 
+
+/* HEADER */
+
 .header {
     position: fixed;
-    z-index: 35;
+    z-index: 50;
     top: 0;
     right: 0;
     left: 0;
@@ -85,6 +88,9 @@
     transform: rotate(-45deg);
 }
 
+
+/* MOBILE MENU */
+
 .mobileMenu {
     max-height: 0;
     overflow: hidden;
@@ -144,6 +150,9 @@
     }
 }
 
+
+/* DESKTOP MENU */
+
 .desktopMenu {
     position: fixed;
     z-index: 90;
@@ -193,9 +202,19 @@
     }
 }
 
-@media (min-width: 768px) {
 
-    .headerSpacer,
+/* DESKTOP ONLY */
+
+@media (min-width: 1024px) {
+
+    .header {
+        z-index: 35;
+    }
+
+    .headerSpacer {
+        display: block;
+    }
+
     .desktopMenu {
         display: flex;
     }
@@ -207,4 +226,5 @@
     .logo {
         width: 400px;
     }
+
 }
