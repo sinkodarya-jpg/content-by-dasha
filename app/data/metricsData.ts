@@ -1,5 +1,5 @@
 export const metrics = {
-  followers: "5721",
+  followers: "7998",
   engagementRate: "4.6%",
 
   audience: [
